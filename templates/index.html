@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPS Prediction by Machine Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e0f2f1; /* Light blue background */
+            font-family: 'Open Sans', sans-serif; /* Fallback for sans-serif */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2c3e50;
+        }
+
+        .container {
+            background: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #3498db; /* Primary - Blue */
+            font-family: 'Montserrat', sans-serif; /* Headings use Montserrat */
+            font-size: 2em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        h2 {
+            color: #3498db; /* Primary - Blue */
+            font-family: 'Montserrat', sans-serif; /* Headings use Montserrat */
+            font-size: 1.5em;
+            margin-top: 1em;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-group label {
+            flex: 0 0 48%;
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+
+        .form-group input[type="text"] {
+            flex: 0 0 48%;
+            padding: 0.8em 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 1em;
+            width: calc(48% - 2em);
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 0.8em 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 1em;
+            background-color: #f1c40f; /* Secondary - Light orange */
+            color: #fff; /* White text */
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e2b607;
+        }
+
+        .result {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EPS Prediction by Machine Learning</h1>
+
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="ROCE">ROCE (%):</label>
+                <input type="text" id="ROCE" name="ROCE (%)" required>
+
+                <label for="CASA">CASA (%):</label>
+                <input type="text" id="CASA" name="CASA (%)" required>
+
+                <label for="ReturnOnEquity">Return on Equity / Networth (%):</label>
+                <input type="text" id="ReturnOnEquity" name="Return on Equity / Networth (%)" required>
+
+                <label for="NonInterestIncome">Non-Interest Income/Total Assets (%):</label>
+                <input type="text" id="NonInterestIncome" name="Non-Interest Income/Total Assets (%)" required>
+
+                <label for="OperatingProfit">Operating Profit/Total Assets (%):</label>
+                <input type="text" id="OperatingProfit" name="Operating Profit/Total Assets (%)" required>
+
+                <label for="OperatingExpenses">Operating Expenses/Total Assets (%):</label>
+                <input type="text" id="OperatingExpenses" name="Operating Expenses/Total Assets (%)" required>
+
+                <label for="InterestExpenses">Interest Expenses/Total Assets (%):</label>
+                <input type="text" id="InterestExpenses" name="Interest Expenses/Total Assets (%)" required>
+
+                <label for="FaceValue">Face value:</label>
+                <input type="text" id="FaceValue" name="Face_value" required>
+            </div>
+
+            <input type="submit" value="Predict using ML">
+
+            <p class="result">EPS Predicted: <span id="result">{{result}}</span></p>
+        </form>
+    </div>
+</body>
+</html>
